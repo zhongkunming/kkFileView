@@ -144,7 +144,10 @@ public class OnlinePreviewController {
      * @param urlPath  url
      * @param response response
      */
-    @GetMapping("/getCorsFile")
+    @GetMapping({
+//            "/getCorsFile",
+            "/getFile"
+    })
     public void getCorsFile(@RequestParam String urlPath,
                             @RequestParam(required = false) String key,
                             HttpServletResponse response,
