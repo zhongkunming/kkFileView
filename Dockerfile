@@ -1,8 +1,8 @@
 FROM keking/kkfileview-base:5.0.0
-RUN addgroup -g 2001 appuser && \
-    adduser -u 2001 -G appuser -M -s /sbin/nologin -D appuser
+RUN groupadd -g 2001 appuser && \
+    useradd -u 2001 -G appuser -s /sbin/nologin -D appuser
 ADD server/target/kkFileView-*.tar.gz /opt/
-WORKDIR /home/appuser
+WORKDIR /opt/kkFileView-5.0.0
 RUN chown -R appuser:appuser /opt/kkFileView-5.0.0 && \
     chown -R appuser:appuser /home/appuser
 USER appuser
