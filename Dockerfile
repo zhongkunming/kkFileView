@@ -1,10 +1,10 @@
-FROM keking/kkfileview-base:5.0.0
+FROM keking/kkfileview-base:5.0.1
 ADD server/target/kkFileView-*.tar.gz /opt/
-WORKDIR /opt/kkFileView-5.0.0
+WORKDIR /opt/kkFileView-5.0.1
 RUN groupadd -g 2001 appuser && \
     useradd -m -u 2001 -g 2001 -s /sbin/nologin appuser && \
-    chown -R appuser:appuser /opt/kkFileView-5.0.0 && \
+    chown -R appuser:appuser /opt/kkFileView-5.0.1 && \
     chown -R appuser:appuser /home/appuser
 USER appuser
-ENV KKFILEVIEW_BIN_FOLDER=/opt/kkFileView-5.0.0/bin
-ENTRYPOINT ["java","-Dfile.encoding=UTF-8","-Dspring.config.location=/opt/kkFileView-5.0.0/config/application.properties","-jar","/opt/kkFileView-5.0.0/bin/kkFileView-5.0.0.jar"]
+ENV KKFILEVIEW_BIN_FOLDER=/opt/kkFileView-5.0.1/bin
+ENTRYPOINT ["java","-Dfile.encoding=UTF-8","-Dspring.config.location=/opt/kkFileView-5.0.1/config/application.properties","-jar","/opt/kkFileView-5.0.1/bin/kkFileView-5.0.1.jar"]
